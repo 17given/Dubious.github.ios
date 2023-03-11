@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DreamLife.com</title>
+  </head>
+  <div class="link">
+		<a href="test2.html">
+			
+			Back To Search
+		  Cilck Here 
+		</a>
+	</div>
+  <body>
+<div class="video-controls">
+  <video controls>
+    <source src="https://www.dropbox.com/s/pb0t1lgqlqhbjrm/lv_0_20230216230502.mp4?raw=1" type="video/mp4">
+  </video>
+  <h2>Enola Holmes 2</h2>
+  <button class="like-button" onclick="likeVideo(1)">
+    <img src="https://img.icons8.com/material-outlined/24/000000/thumb-up.png" alt="Like">
+    <span id="video1-likes">0</span>
+  </button>
+</div>
+<div class="video-controls">
+  <video controls>
+    <source src="https://www.dropbox.com/s/e3acaenzsqcsm1c/lv_0_20230219130622.mp4?raw=1" type="video/mp4">
+  </video>
+  <h2>Enola Holmes 2</h2>
+  <button class="like-button" onclick="likeVideo(2)">
+    <img src="https://img.icons8.com/material-outlined/24/000000/thumb-up.png" alt="Like">
+    <span id="video2-likes">0</span>
+  </button>
+</div>
+  <div class="video-controls">
+  <video controls>
+    <source src="https://www.dropbox.com/s/blpghf1pughqy3e/lv_0_20230219130622.mp4?raw=1" type="video/mp4">
+  </video>
+  <h2>Enola Holmes 2</h2>
+  <button class="like-button" onclick="likeVideo(3)">
+    <img src="https://img.icons8.com/material-outlined/24/000000/thumb-up.png" alt="Like">
+    <span id="video3-likes">0</span>
+  </button>
+</div> 
+  <div class="video-controls">
+  <video controls>
+    <source src="https://www.dropbox.com/s/t3sr9on97nzge8y/lv_0_20230225140647.mp4?raw=1" type="video/mp4">
+  </video>
+  <h2>Enola Holmes 2</h2>
+  <button class="like-button" onclick="likeVideo(4)">
+    <img src="https://img.icons8.com/material-outlined/24/000000/thumb-up.png" alt="Like">
+    <span id="video4-likes">0</span>
+  </button>
+</div> 
+    <!-- Button to open comment section -->
+<button id="comment-toggle">Comments for all
+ <img src="https://od.lk/s/NjdfMzE4NjQwNjFf/1380338-removebg-preview.png" alt="comment" width="32" height="32">
+    
+    </button>
+
+<!-- Comment section -->
+<div id="comments" style="display:none;">
+    <h2>Comments</h2>
+    <div id="comments-list"></div>
+
+    <!-- Comment form -->
+    <form id="comment-form">
+        <textarea id="comment-text" placeholder="I Love Y🥰U"></textarea>
+        <button type="submit">post</button>
+    </form>
+ 
+    </div>
+    <style>
+/* Style the comment section and form */
+#comments {
+    background-color: grey;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+#comment-form {
+    margin-top: 5px;
+}
+
+/* Style the comments and replies */
+.comment {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+    </style>
+ <style>
+		.link img {
+			height: 50px;
+			width: 50px;
+			margin-right: 10px;
+		}
+		.link a {
+			display: inline-block;
+			color: black;
+			text-decoration: none;
+			font-size: 18px;
+			padding: 10px;
+			border-radius: 5px;
+			transition: background-color 0.3s ease;
+		}
+		.link a:hover {
+			background-color: #eee;
+		}
+	</style>
+
+    <script>
+// Get the comment toggle button
+const commentToggle = document.querySelector('#comment-toggle');
+
+// Get the comments section and comment form
+const commentsSection = document.querySelector('#comments');
+const commentForm = document.querySelector('#comment-form');
+
+// Get the comments list
+const commentsList = document.querySelector('#comments-list');
+
+// Add an event listener to the comment toggle button
+commentToggle.addEventListener('click', () => {
+    // Toggle the display of the comments section and comment form
+    commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+});
+
+// Add an event listener to the comment form
+commentForm.addEventListener('submit', (event) => {
+    // Prevent the form from submitting
+    event.preventDefault();
+
+    // Get the comment text
+    const commentText = document.querySelector('#comment-text').value;
+
+    // Create a new comment element and append it to the comments list
+    const newComment = document.createElement('div');
+    newComment.className = 'comment';
+    newComment.innerHTML = `
+        <p>${commentText}</p>
+        
+    `;
+    commentsList.appendChild(newComment);
+
+    // Reset the comment form
+    document.querySelector('#comment-text').value = '';
+});
+
+
+
+  
+  </script>
+    
+    <script>
+let videoLikes = {};
+
+function likeVideo(videoNumber) {
+  if (videoLikes[videoNumber]) {
+    videoLikes[videoNumber]++;
+  } else {
+    videoLikes[videoNumber] = 1;
+  } 
+
+  const likesElement = document.getElementById(`video${videoNumber}-likes`);
+  likesElement.innerText = videoLikes[videoNumber];
+}
+</script>
+
+</html>
